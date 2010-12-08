@@ -44,16 +44,16 @@ def main():
 	login = args[0]
 	password = args[1]
 
-	post_type  = 'regular'
+	post_type  = "regular"
 	post_body  = sys.stdin.read()
 
-	params = urllib.urlencode({ 'email': login,
-				    'password': password,
-				    'type': post_type,
-				    'title': post_title,
-				    'body': post_body,
-				    'generator': 'tumblr-post' })
-	result = urllib.urlopen('http://www.tumblr.com/api/write', params)
+	params = urllib.urlencode({ "email": login,
+				    "password": password,
+				    "type": post_type,
+				    "title": post_title,
+				    "body": post_body,
+				    "generator": "tumblr-post" })
+	result = urllib.urlopen("http://www.tumblr.com/api/write", params)
 
 	if result:
 		if verbose:

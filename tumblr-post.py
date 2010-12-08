@@ -45,7 +45,7 @@ def main():
 	password = args[1]
 
 	post_type  = 'regular'
-	post_body  = sys.stdin.readlines()
+	post_body  = sys.stdin.read()
 
 	params = urllib.urlencode({ 'email': login,
 				    'password': password,

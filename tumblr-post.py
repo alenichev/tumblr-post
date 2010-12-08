@@ -46,13 +46,14 @@ def main():
 
 	post_type  = "regular"
 	post_body  = sys.stdin.read()
+	generator = "tumblr-post (https://github.com/alenichev/tumblr-post)"
 
 	params = urllib.urlencode({ "email": login,
 				    "password": password,
 				    "type": post_type,
 				    "title": post_title,
 				    "body": post_body,
-				    "generator": "tumblr-post" })
+				    "generator": generator })
 	result = urllib.urlopen("http://www.tumblr.com/api/write", params)
 
 	if result:

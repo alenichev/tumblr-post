@@ -14,7 +14,10 @@
 # ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 # OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
-import getopt, os, sys, urllib
+import os
+import sys
+import getopt
+import urllib
 
 def usage():
     progname = os.path.basename(sys.argv[0])
@@ -49,11 +52,11 @@ def main():
     post_body = sys.stdin.read()
     generator = "tumblr-post (https://github.com/alenichev/tumblr-post)"
 
-    params = urllib.urlencode({ "email":     login,
-                                "password":  password,
-                                "type":      post_type,
-                                "title":     post_title,
-                                "body":      post_body,
+    params = urllib.urlencode({ "body": post_body,
+                                "type": post_type,
+                                "title": post_title,
+                                "email": login,
+                                "password": password,
                                 "generator": generator })
     result = urllib.urlopen("http://www.tumblr.com/api/write", params)
 
